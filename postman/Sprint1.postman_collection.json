@@ -1,0 +1,2870 @@
+{
+  "info": {
+    "name": "Sprint1",
+    "description": "Security Incident Detection and Response Management System - Sprint I API collection, EECE 435L.\n\nTeam: Hassane El Khatib, Yehia Afesh, Abdul Rahman Habbal.\n\n| Folder | Service | Port | Developed by |\n| --- | --- | --- | --- |\n| Users | Users and Identity Management | 5001 | Hassane El Khatib |\n| Assets | Asset Management | 5002 | Yehia Afesh |\n| Incidents | Incident Management | 5003 | Yehia Afesh |\n| Threats | Threat Intelligence | 5004 | Abdul Rahman Habbal |\n| Logs | Security Audit Logging | 5005 | Hassane El Khatib |\n| Reports | Security Reports | 5006 | Abdul Rahman Habbal |\n| Vulnerabilities | Vulnerability Management | 5007 | Yehia Afesh |\n| Notifications | Notification and Alert Management | 5008 | Hassane El Khatib |\n| Playbooks | Security Playbook and Response | 5009 | Abdul Rahman Habbal |\n\nUsage: select the \"Sprint1_Local\" environment, start the services (python main.py), run \"00 Auth helpers\" first, then run each folder's requests in order. Every request name starts with the full name of the student who developed that API, and every request checks its expected status code.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "00 Auth helpers",
+      "description": "Shared by the whole team. Run this folder first (Run folder). Each request logs in one test account through the User Login API and stores its JWT in the environment (admin_token, analyst_token, employee_token, auditor_token, ...), which every other folder uses. Tokens expire after 60 minutes.",
+      "item": [
+        {
+          "name": "Login helper - admin (Security Administrator)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "pm.environment.set(\"admin_token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"Admin@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login helper - analyst1 (Security Analyst)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "pm.environment.set(\"analyst_token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"analyst1\",\n    \"password\": \"Analyst@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login helper - analyst2 (Security Analyst (second))",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "pm.environment.set(\"analyst2_token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"analyst2\",\n    \"password\": \"Analyst@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login helper - employee1 (Regular User)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "pm.environment.set(\"employee_token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"employee1\",\n    \"password\": \"Employee@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login helper - employee2 (Regular User (second))",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "pm.environment.set(\"employee2_token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"employee2\",\n    \"password\": \"Employee@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login helper - auditor1 (Auditor)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "pm.environment.set(\"auditor_token\", pm.response.json().token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"auditor1\",\n    \"password\": \"Auditor@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "01 Users",
+      "description": "Users and Identity Management Service (port 5001): registration, login, profile updates, deletion and lookups with role-based access control.\n\nDeveloped by: Hassane El Khatib",
+      "item": [
+        {
+          "name": "Hassane El Khatib - User Registration - regular user success [A-01]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) { pm.environment.set(\"new_user_id\", pm.response.json().data.user_id); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"Lina Saad\",\n    \"username\": \"lsaad\",\n    \"email\": \"lina.saad@company.com\",\n    \"password\": \"Strong@Pass1\",\n    \"department\": \"Finance\",\n    \"role\": \"Regular User\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Registration - duplicate username [A-02]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"Lina Saad\",\n    \"username\": \"lsaad\",\n    \"email\": \"lina.saad2@company.com\",\n    \"password\": \"Strong@Pass1\",\n    \"department\": \"Finance\",\n    \"role\": \"Regular User\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Registration - invalid email [A-03]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"Lina Saad\",\n    \"username\": \"lina_s\",\n    \"email\": \"lina.saad@company\",\n    \"password\": \"Strong@Pass1\",\n    \"department\": \"Finance\",\n    \"role\": \"Regular User\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Registration - missing fields [A-04]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"test_user\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Registration - weak password [A-05]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"Lina Saad\",\n    \"username\": \"weak_user\",\n    \"email\": \"weak.user@company.com\",\n    \"password\": \"abc\",\n    \"department\": \"Finance\",\n    \"role\": \"Regular User\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Registration - privileged role without admin token [A-06]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"Lina Saad\",\n    \"username\": \"fake_admin\",\n    \"email\": \"fake.admin@company.com\",\n    \"password\": \"Strong@Pass1\",\n    \"department\": \"Finance\",\n    \"role\": \"Security Administrator\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Registration - admin creates Security Analyst [A-07]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/register",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "register"
+              ]
+            },
+            "description": "**User Registration** (POST /users/register)\n\nCreates an account. Anyone may register a Regular User; only a Security Administrator (Bearer token) may create other roles.\n\nBody: `full_name`, `username`, `email`, `password`, `department`, `role` (all required).\n\nValidation: required fields, email format, username 3-30 letters/digits/underscores and unique, email unique, password at least 8 characters with upper, lower, digit and special character, role one of the 4 roles.\n\nSuccess: 201 with the created user (no password).\n\nErrors: 400 validation, 403 non-admin creating a privileged role, 409 duplicate username or email.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"full_name\": \"Karim Haddad\",\n    \"username\": \"analyst3\",\n    \"email\": \"analyst3@sidrms.com\",\n    \"password\": \"Analyst@5678\",\n    \"department\": \"SOC\",\n    \"role\": \"Security Analyst\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Login - successful login (admin) [A-08]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+                  "if (pm.response.code === 200) { pm.environment.set(\"admin_token\", pm.response.json().token); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"Admin@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Login - wrong password [A-09]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"WrongPass@1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Login - suspended account [A-10]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"suspended1\",\n    \"password\": \"Employee@1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - User Login - SQL injection attempt [A-11]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/login",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            },
+            "description": "**User Login** (POST /users/login, public)\n\nAuthenticates a user with username (or email) and password. Passwords are verified against bcrypt hashes. Inactive and suspended accounts are refused.\n\nBody: `username`, `password`\n\nSuccess: 200 with a JWT `token` (valid 60 minutes).\n\nErrors: 400 missing fields, 401 invalid username or password, 403 account Inactive/Suspended.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"admin' OR '1'='1\",\n    \"password\": \"anything' OR '1'='1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Update User Information - employee updates own department [A-12]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/4",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "4"
+              ]
+            },
+            "description": "**Update User Information** (PUT /users/{id})\n\nRoles: Security Administrator (any user; may also change `role` and `account_status`), Regular User (own account only: `full_name`, `email`, `department`).\n\nSuccess: 200 with the updated user. Role and status changes are logged (ROLE_CHANGED, ACCOUNT_STATUS_CHANGED) and the user is notified.\n\nErrors: 400 invalid or non-updatable field, 401 no token, 403 wrong role or another user's account, 404 user not found, 409 email taken.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"department\": \"Legal\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Update User Information - employee updates another user [A-13]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/5",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "5"
+              ]
+            },
+            "description": "**Update User Information** (PUT /users/{id})\n\nRoles: Security Administrator (any user; may also change `role` and `account_status`), Regular User (own account only: `full_name`, `email`, `department`).\n\nSuccess: 200 with the updated user. Role and status changes are logged (ROLE_CHANGED, ACCOUNT_STATUS_CHANGED) and the user is notified.\n\nErrors: 400 invalid or non-updatable field, 401 no token, 403 wrong role or another user's account, 404 user not found, 409 email taken.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"department\": \"Legal\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Update User Information - employee tries to change own role [A-14]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/4",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "4"
+              ]
+            },
+            "description": "**Update User Information** (PUT /users/{id})\n\nRoles: Security Administrator (any user; may also change `role` and `account_status`), Regular User (own account only: `full_name`, `email`, `department`).\n\nSuccess: 200 with the updated user. Role and status changes are logged (ROLE_CHANGED, ACCOUNT_STATUS_CHANGED) and the user is notified.\n\nErrors: 400 invalid or non-updatable field, 401 no token, 403 wrong role or another user's account, 404 user not found, 409 email taken.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"role\": \"Security Administrator\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Update User Information - admin changes role [A-15]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/{{new_user_id}}",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "{{new_user_id}}"
+              ]
+            },
+            "description": "**Update User Information** (PUT /users/{id})\n\nRoles: Security Administrator (any user; may also change `role` and `account_status`), Regular User (own account only: `full_name`, `email`, `department`).\n\nSuccess: 200 with the updated user. Role and status changes are logged (ROLE_CHANGED, ACCOUNT_STATUS_CHANGED) and the user is notified.\n\nErrors: 400 invalid or non-updatable field, 401 no token, 403 wrong role or another user's account, 404 user not found, 409 email taken.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"role\": \"Security Analyst\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Update User Information - invalid email [A-16]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{users_url}}/users/4",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "4"
+              ]
+            },
+            "description": "**Update User Information** (PUT /users/{id})\n\nRoles: Security Administrator (any user; may also change `role` and `account_status`), Regular User (own account only: `full_name`, `email`, `department`).\n\nSuccess: 200 with the updated user. Role and status changes are logged (ROLE_CHANGED, ACCOUNT_STATUS_CHANGED) and the user is notified.\n\nErrors: 400 invalid or non-updatable field, 401 no token, 403 wrong role or another user's account, 404 user not found, 409 email taken.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"not-an-email\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete User - admin deletes user [A-17]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users/{{new_user_id}}",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "{{new_user_id}}"
+              ]
+            },
+            "description": "**Delete User** (DELETE /users/{id})\n\nRoles: Security Administrator only (not their own account).\n\nSuccess: 200, logged as USER_DELETED.\n\nErrors: 400 deleting own account, 401 no token, 403 role not allowed, 404 user not found, 409 user still referenced by other records.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete User - analyst not allowed [A-18]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users/5",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "5"
+              ]
+            },
+            "description": "**Delete User** (DELETE /users/{id})\n\nRoles: Security Administrator only (not their own account).\n\nSuccess: 200, logged as USER_DELETED.\n\nErrors: 400 deleting own account, 401 no token, 403 role not allowed, 404 user not found, 409 user still referenced by other records.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete User - user does not exist [A-19]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users/999",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "999"
+              ]
+            },
+            "description": "**Delete User** (DELETE /users/{id})\n\nRoles: Security Administrator only (not their own account).\n\nSuccess: 200, logged as USER_DELETED.\n\nErrors: 400 deleting own account, 401 no token, 403 role not allowed, 404 user not found, 409 user still referenced by other records.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve All Users - analyst - insufficient permissions [A-20]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "**Retrieve All Users** (GET /users)\n\nRoles: Security Administrator, Auditor.\n\nOptional query: `role`, `account_status`.\n\nSuccess: 200 `{status, message, count, data: [users]}`; password hashes are never returned.\n\nErrors: 400 invalid filter, 401 no token, 403 role not allowed.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve All Users - auditor - correct permissions [A-21]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "**Retrieve All Users** (GET /users)\n\nRoles: Security Administrator, Auditor.\n\nOptional query: `role`, `account_status`.\n\nSuccess: 200 `{status, message, count, data: [users]}`; password hashes are never returned.\n\nErrors: 400 invalid filter, 401 no token, 403 role not allowed.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve User By Username - existing user [A-22]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users/analyst1",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "analyst1"
+              ]
+            },
+            "description": "**Retrieve User By Username** (GET /users/{username})\n\nRoles: Security Administrator, Auditor (any user), Regular User (own username only).\n\nSuccess: 200 with the user.\n\nErrors: 401 no token, 403 role not allowed or another user's profile, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve User By Username - non-existing user [A-23]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users/ghost",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "ghost"
+              ]
+            },
+            "description": "**Retrieve User By Username** (GET /users/{username})\n\nRoles: Security Administrator, Auditor (any user), Regular User (own username only).\n\nSuccess: 200 with the user.\n\nErrors: 401 no token, 403 role not allowed or another user's profile, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve User By Username - employee views another user [A-24]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users/employee2",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users",
+                "employee2"
+              ]
+            },
+            "description": "**Retrieve User By Username** (GET /users/{username})\n\nRoles: Security Administrator, Auditor (any user), Regular User (own username only).\n\nSuccess: 200 with the user.\n\nErrors: 401 no token, 403 role not allowed or another user's profile, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve All Users - missing token [A-25]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{users_url}}/users",
+              "host": [
+                "{{users_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "**Retrieve All Users** (GET /users)\n\nRoles: Security Administrator, Auditor.\n\nOptional query: `role`, `account_status`.\n\nSuccess: 200 `{status, message, count, data: [users]}`; password hashes are never returned.\n\nErrors: 400 invalid filter, 401 no token, 403 role not allowed.",
+            "auth": {
+              "type": "noauth"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 Assets",
+      "description": "Asset Management Service (port 5002).\n\nDeveloped by: Yehia Afesh\n\nRequests in this folder are named 'Yehia Afesh - <API> - <scenario>'.",
+      "item": []
+    },
+    {
+      "name": "03 Incidents",
+      "description": "Incident Management Service (port 5003).\n\nDeveloped by: Yehia Afesh\n\nRequests in this folder are named 'Yehia Afesh - <API> - <scenario>'.",
+      "item": []
+    },
+    {
+      "name": "04 Threats",
+      "description": "Threat Intelligence Service (port 5004).\n\nDeveloped by: Abdul Rahman Habbal\n\nRequests in this folder are named 'Abdul Rahman Habbal - <API> - <scenario>'.",
+      "item": []
+    },
+    {
+      "name": "05 Logs",
+      "description": "Security Audit Logging Service (port 5005): immutable audit records created automatically by every service, with retrieval, search, per-user history and admin-only deletion.\n\nDeveloped by: Hassane El Khatib",
+      "item": [
+        {
+          "name": "Hassane El Khatib - Create Log Record - admin creates log [A-26]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) { pm.environment.set(\"created_log_id\", pm.response.json().data.log_id); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{logs_url}}/logs",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs"
+              ]
+            },
+            "description": "**Create Log Record** (POST /logs)\n\nRoles: Security Administrator, or other services using the internal X-Service-Key header.\n\nBody: `user_id`, `action`, `description`, `severity` (Information, Warning, Error, Critical), `related_service` (one of the 9 services). The timestamp is set by the database.\n\nSuccess: 201 with the log.\n\nErrors: 400 validation or unknown user, 401 no token, 403 role not allowed.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 2,\n    \"action\": \"MANUAL_REVIEW\",\n    \"description\": \"Weekly review of firewall rules completed\",\n    \"severity\": \"Information\",\n    \"related_service\": \"assets\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Create Log Record - invalid severity [A-27]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{logs_url}}/logs",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs"
+              ]
+            },
+            "description": "**Create Log Record** (POST /logs)\n\nRoles: Security Administrator, or other services using the internal X-Service-Key header.\n\nBody: `user_id`, `action`, `description`, `severity` (Information, Warning, Error, Critical), `related_service` (one of the 9 services). The timestamp is set by the database.\n\nSuccess: 201 with the log.\n\nErrors: 400 validation or unknown user, 401 no token, 403 role not allowed.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 2,\n    \"action\": \"MANUAL_REVIEW\",\n    \"description\": \"Weekly review of firewall rules completed\",\n    \"severity\": \"Urgent\",\n    \"related_service\": \"assets\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Create Log Record - analyst not allowed [A-28]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{logs_url}}/logs",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs"
+              ]
+            },
+            "description": "**Create Log Record** (POST /logs)\n\nRoles: Security Administrator, or other services using the internal X-Service-Key header.\n\nBody: `user_id`, `action`, `description`, `severity` (Information, Warning, Error, Critical), `related_service` (one of the 9 services). The timestamp is set by the database.\n\nSuccess: 201 with the log.\n\nErrors: 400 validation or unknown user, 401 no token, 403 role not allowed.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 2,\n    \"action\": \"MANUAL_REVIEW\",\n    \"description\": \"Weekly review of firewall rules completed\",\n    \"severity\": \"Information\",\n    \"related_service\": \"assets\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve All Logs - auditor [A-29]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs"
+              ]
+            },
+            "description": "**Retrieve All Logs** (GET /logs)\n\nRoles: Security Administrator, Auditor. Newest first, each with the username.\n\nOptional query: `limit` (1-500).\n\nErrors: 400 invalid limit, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Specific Log - existing log [A-30]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/{{created_log_id}}",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "{{created_log_id}}"
+              ]
+            },
+            "description": "**Retrieve Specific Log** (GET /logs/{id})\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nErrors: 401, 403, 404 log not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Specific Log - invalid log id [A-31]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/99999",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "99999"
+              ]
+            },
+            "description": "**Retrieve Specific Log** (GET /logs/{id})\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nErrors: 401, 403, 404 log not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Logs - by severity Warning [A-32]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/search?severity=Warning",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "Warning"
+                }
+              ]
+            },
+            "description": "**Search Logs** (GET /logs/search)\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nQuery filters (combined with AND): `user_id`, `action`, `severity`, `related_service`, `date`, `from`, `to` (dates as YYYY-MM-DD). At least one is required.\n\nErrors: 400 no filter / invalid value / unknown parameter, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Logs - by user and action [A-33]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/search?user_id=2&action=LOGIN_SUCCESS",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "user_id",
+                  "value": "2"
+                },
+                {
+                  "key": "action",
+                  "value": "LOGIN_SUCCESS"
+                }
+              ]
+            },
+            "description": "**Search Logs** (GET /logs/search)\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nQuery filters (combined with AND): `user_id`, `action`, `severity`, `related_service`, `date`, `from`, `to` (dates as YYYY-MM-DD). At least one is required.\n\nErrors: 400 no filter / invalid value / unknown parameter, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Logs - by date (today) [A-34]",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const d = new Date();",
+                  "const pad = n => String(n).padStart(2, \"0\");",
+                  "pm.environment.set(\"today\", `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/search?date={{today}}",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{today}}"
+                }
+              ]
+            },
+            "description": "**Search Logs** (GET /logs/search)\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nQuery filters (combined with AND): `user_id`, `action`, `severity`, `related_service`, `date`, `from`, `to` (dates as YYYY-MM-DD). At least one is required.\n\nErrors: 400 no filter / invalid value / unknown parameter, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Logs - by related service [A-35]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/search?related_service=users",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "related_service",
+                  "value": "users"
+                }
+              ]
+            },
+            "description": "**Search Logs** (GET /logs/search)\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nQuery filters (combined with AND): `user_id`, `action`, `severity`, `related_service`, `date`, `from`, `to` (dates as YYYY-MM-DD). At least one is required.\n\nErrors: 400 no filter / invalid value / unknown parameter, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Logs - invalid severity [A-36]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/search?severity=Urgent",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "Urgent"
+                }
+              ]
+            },
+            "description": "**Search Logs** (GET /logs/search)\n\nRoles: Security Administrator, Auditor, Security Analyst.\n\nQuery filters (combined with AND): `user_id`, `action`, `severity`, `related_service`, `date`, `from`, `to` (dates as YYYY-MM-DD). At least one is required.\n\nErrors: 400 no filter / invalid value / unknown parameter, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete Logs - admin deletes log [A-37]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/{{created_log_id}}",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "{{created_log_id}}"
+              ]
+            },
+            "description": "**Delete Logs** (DELETE /logs/{id})\n\nRoles: Security Administrator only. The deletion is itself logged (LOG_DELETED). Logs can never be updated (no PUT route, no repository method, database trigger).\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete Logs - analyst not allowed [A-38]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/1",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "1"
+              ]
+            },
+            "description": "**Delete Logs** (DELETE /logs/{id})\n\nRoles: Security Administrator only. The deletion is itself logged (LOG_DELETED). Logs can never be updated (no PUT route, no repository method, database trigger).\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Logs By User - user with logs [A-39]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/user/2",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "user",
+                "2"
+              ]
+            },
+            "description": "**Retrieve Logs By User** (GET /logs/user/{user_id})\n\nRoles: Security Administrator, Auditor. Returns every activity of one user, newest first; an empty list with a message when the user has no logs.\n\nErrors: 401, 403, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Logs By User - user with no logs [A-40]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/user/8",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "user",
+                "8"
+              ]
+            },
+            "description": "**Retrieve Logs By User** (GET /logs/user/{user_id})\n\nRoles: Security Administrator, Auditor. Returns every activity of one user, newest first; an empty list with a message when the user has no logs.\n\nErrors: 401, 403, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Logs By User - user does not exist [A-41]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{logs_url}}/logs/user/999",
+              "host": [
+                "{{logs_url}}"
+              ],
+              "path": [
+                "logs",
+                "user",
+                "999"
+              ]
+            },
+            "description": "**Retrieve Logs By User** (GET /logs/user/{user_id})\n\nRoles: Security Administrator, Auditor. Returns every activity of one user, newest first; an empty list with a message when the user has no logs.\n\nErrors: 401, 403, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 Reports",
+      "description": "Security Reports Service (port 5006).\n\nDeveloped by: Abdul Rahman Habbal\n\nRequests in this folder are named 'Abdul Rahman Habbal - <API> - <scenario>'.",
+      "item": []
+    },
+    {
+      "name": "07 Vulnerabilities",
+      "description": "Vulnerability Management Service (port 5007).\n\nDeveloped by: Yehia Afesh\n\nRequests in this folder are named 'Yehia Afesh - <API> - <scenario>'.",
+      "item": []
+    },
+    {
+      "name": "08 Notifications",
+      "description": "Notification and Alert Management Service (port 5008): alerts and system messages per user, read tracking, search and admin-only deletion.\n\nDeveloped by: Hassane El Khatib",
+      "item": [
+        {
+          "name": "Hassane El Khatib - Create Notification - security alert for analyst1 [A-43]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) { pm.environment.set(\"analyst_notification_id\", pm.response.json().data.notification_id); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{notifications_url}}/notifications",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            },
+            "description": "**Create Notification** (POST /notifications)\n\nRoles: Security Administrator, or other services using X-Service-Key (incident assignment, security/threat/vulnerability alerts, role changes).\n\nBody: `user_id`, `title`, `message`, `notification_type` (Incident Assignment, Security Alert, System Notification, Threat Alert, Vulnerability Alert), `severity` (Low, Medium, High, Critical). Status starts as Unread.\n\nErrors: 400 validation or unknown user, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 2,\n    \"title\": \"Critical patch required\",\n    \"message\": \"Apply the vendor security patch to the mail server today.\",\n    \"notification_type\": \"Security Alert\",\n    \"severity\": \"High\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Create Notification - system notification for employee1 [A-44]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) { pm.environment.set(\"employee_notification_id\", pm.response.json().data.notification_id); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{notifications_url}}/notifications",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            },
+            "description": "**Create Notification** (POST /notifications)\n\nRoles: Security Administrator, or other services using X-Service-Key (incident assignment, security/threat/vulnerability alerts, role changes).\n\nBody: `user_id`, `title`, `message`, `notification_type` (Incident Assignment, Security Alert, System Notification, Threat Alert, Vulnerability Alert), `severity` (Low, Medium, High, Critical). Status starts as Unread.\n\nErrors: 400 validation or unknown user, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 4,\n    \"title\": \"Password expiry reminder\",\n    \"message\": \"Your password expires in 5 days. Please change it.\",\n    \"notification_type\": \"System Notification\",\n    \"severity\": \"Low\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Create Notification - invalid type [A-45]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{notifications_url}}/notifications",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            },
+            "description": "**Create Notification** (POST /notifications)\n\nRoles: Security Administrator, or other services using X-Service-Key (incident assignment, security/threat/vulnerability alerts, role changes).\n\nBody: `user_id`, `title`, `message`, `notification_type` (Incident Assignment, Security Alert, System Notification, Threat Alert, Vulnerability Alert), `severity` (Low, Medium, High, Critical). Status starts as Unread.\n\nErrors: 400 validation or unknown user, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user_id\": 4,\n    \"title\": \"Reminder\",\n    \"message\": \"Team meeting at 3 PM.\",\n    \"notification_type\": \"Reminder\",\n    \"severity\": \"Low\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve User Notifications - analyst own notifications [A-46]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/user/2",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "user",
+                "2"
+              ]
+            },
+            "description": "**Retrieve User Notifications** (GET /notifications/user/{user_id})\n\nRoles: Security Administrator, Auditor (any user); Security Analyst, Regular User (own only). Optional query: `status`. Includes `unread_count`.\n\nErrors: 400 invalid status, 401, 403, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve User Notifications - empty result (auditor) [A-47]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/user/6",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "user",
+                "6"
+              ]
+            },
+            "description": "**Retrieve User Notifications** (GET /notifications/user/{user_id})\n\nRoles: Security Administrator, Auditor (any user); Security Analyst, Regular User (own only). Optional query: `status`. Includes `unread_count`.\n\nErrors: 400 invalid status, 401, 403, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve User Notifications - employee reads analyst's [A-48]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/user/2",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "user",
+                "2"
+              ]
+            },
+            "description": "**Retrieve User Notifications** (GET /notifications/user/{user_id})\n\nRoles: Security Administrator, Auditor (any user); Security Analyst, Regular User (own only). Optional query: `status`. Includes `unread_count`.\n\nErrors: 400 invalid status, 401, 403, 404 user not found.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Specific Notification - own notification [A-49]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/{{employee_notification_id}}",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "{{employee_notification_id}}"
+              ]
+            },
+            "description": "**Retrieve Specific Notification** (GET /notifications/{id})\n\nRoles: all four; analysts and regular users only their own.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Retrieve Specific Notification - invalid id [A-50]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/9999",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "9999"
+              ]
+            },
+            "description": "**Retrieve Specific Notification** (GET /notifications/{id})\n\nRoles: all four; analysts and regular users only their own.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Mark Notification as Read - first time [A-51]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/{{analyst_notification_id}}/read",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "{{analyst_notification_id}}",
+                "read"
+              ]
+            },
+            "description": "**Mark Notification as Read** (PUT /notifications/{id}/read)\n\nRoles: Security Administrator (any), Security Analyst and Regular User (own only). Sets status Read and read_at; repeating it keeps the original read_at.\n\nErrors: 401, 403 (Auditor is read-only), 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Mark Notification as Read - already read [A-52]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/{{analyst_notification_id}}/read",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "{{analyst_notification_id}}",
+                "read"
+              ]
+            },
+            "description": "**Mark Notification as Read** (PUT /notifications/{id}/read)\n\nRoles: Security Administrator (any), Security Analyst and Regular User (own only). Sets status Read and read_at; repeating it keeps the original read_at.\n\nErrors: 401, 403 (Auditor is read-only), 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Mark Notification as Read - auditor not allowed [A-53]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/{{analyst_notification_id}}/read",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "{{analyst_notification_id}}",
+                "read"
+              ]
+            },
+            "description": "**Mark Notification as Read** (PUT /notifications/{id}/read)\n\nRoles: Security Administrator (any), Security Analyst and Regular User (own only). Sets status Read and read_at; repeating it keeps the original read_at.\n\nErrors: 401, 403 (Auditor is read-only), 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Notifications - by type Threat Alert [A-54]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/search?notification_type=Threat Alert",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "notification_type",
+                  "value": "Threat Alert"
+                }
+              ]
+            },
+            "description": "**Search Notifications** (GET /notifications/search)\n\nRoles: Security Administrator, Security Analyst (own only), Auditor.\n\nQuery filters (AND): `user_id`, `notification_type`, `severity`, `status`. At least one is required.\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Notifications - unread and High [A-55]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/search?status=Unread&severity=High",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "Unread"
+                },
+                {
+                  "key": "severity",
+                  "value": "High"
+                }
+              ]
+            },
+            "description": "**Search Notifications** (GET /notifications/search)\n\nRoles: Security Administrator, Security Analyst (own only), Auditor.\n\nQuery filters (AND): `user_id`, `notification_type`, `severity`, `status`. At least one is required.\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Search Notifications - invalid severity [A-56]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/search?severity=Extreme",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "Extreme"
+                }
+              ]
+            },
+            "description": "**Search Notifications** (GET /notifications/search)\n\nRoles: Security Administrator, Security Analyst (own only), Auditor.\n\nQuery filters (AND): `user_id`, `notification_type`, `severity`, `status`. At least one is required.\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete Notification - admin deletes [A-57]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/{{employee_notification_id}}",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "{{employee_notification_id}}"
+              ]
+            },
+            "description": "**Delete Notification** (DELETE /notifications/{id})\n\nRoles: Security Administrator only. Logged as NOTIFICATION_DELETED.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Hassane El Khatib - Delete Notification - analyst not allowed [A-58]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{notifications_url}}/notifications/1",
+              "host": [
+                "{{notifications_url}}"
+              ],
+              "path": [
+                "notifications",
+                "1"
+              ]
+            },
+            "description": "**Delete Notification** (DELETE /notifications/{id})\n\nRoles: Security Administrator only. Logged as NOTIFICATION_DELETED.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "09 Playbooks",
+      "description": "Security Playbook and Response Service (port 5009).\n\nDeveloped by: Abdul Rahman Habbal\n\nRequests in this folder are named 'Abdul Rahman Habbal - <API> - <scenario>'.",
+      "item": []
+    }
+  ]
+}

@@ -51,3 +51,65 @@ CREATE TABLE notifications (
 );
 
 CREATE INDEX idx_notifications_user ON notifications(user_id);
+
+CREATE TABLE assets (
+    asset_id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    asset_name        TEXT NOT NULL,
+    asset_type        TEXT NOT NULL CHECK (asset_type IN ('Server', 'Workstation', 'Database', 'Application', 'Network Device', 'Cloud Resource')),
+    ip_address        TEXT NOT NULL,
+    operating_system  TEXT,
+    owner_id          INTEGER NOT NULL REFERENCES users(user_id) ON DELETE RESTRICT,
+    department        TEXT NOT NULL,
+    location          TEXT,
+    criticality       TEXT NOT NULL CHECK (criticality IN ('Low', 'Medium', 'High', 'Critical')),
+    status            TEXT NOT NULL DEFAULT 'Active' CHECK (status IN ('Active', 'Inactive', 'Under Maintenance')),
+    created_at        TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+    updated_at        TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+);
+
+CREATE INDEX idx_assets_owner ON assets(owner_id);
+
+CREATE TABLE incidents (
+    incident_id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    title                TEXT NOT NULL,
+    description          TEXT NOT NULL,
+    category             TEXT NOT NULL CHECK (category IN ('Malware', 'Unauthorized Access', 'Phishing', 'Data Leakage', 'Account Compromise', 'Denial of Service', 'Other')),
+    severity             TEXT NOT NULL CHECK (severity IN ('Low', 'Medium', 'High', 'Critical')),
+    reporter_id          INTEGER NOT NULL REFERENCES users(user_id) ON DELETE RESTRICT,
+    asset_id             INTEGER REFERENCES assets(asset_id) ON DELETE SET NULL,
+    assigned_analyst_id  INTEGER REFERENCES users(user_id) ON DELETE SET NULL,
+    status               TEXT NOT NULL DEFAULT 'Open' CHECK (status IN ('Open', 'Under Investigation', 'Mitigated', 'Resolved', 'Closed')),
+    created_at           TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+    updated_at           TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+    resolved_at          TEXT
+);
+
+CREATE INDEX idx_incidents_reporter ON incidents(reporter_id);
+CREATE INDEX idx_incidents_analyst ON incidents(assigned_analyst_id);
+
+CREATE TABLE investigation_notes (
+    note_id      INTEGER PRIMARY KEY AUTOINCREMENT,
+    incident_id  INTEGER NOT NULL REFERENCES incidents(incident_id) ON DELETE CASCADE,
+    analyst_id   INTEGER NOT NULL REFERENCES users(user_id) ON DELETE RESTRICT,
+    content      TEXT NOT NULL,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+);
+
+CREATE INDEX idx_notes_incident ON investigation_notes(incident_id);
+
+CREATE TABLE vulnerabilities (
+    vulnerability_id  INTEGER PRIMARY KEY AUTOINCREMENT,
+    title             TEXT NOT NULL,
+    description       TEXT NOT NULL,
+    cve_id            TEXT NOT NULL,
+    cvss_score        REAL NOT NULL CHECK (cvss_score BETWEEN 0.0 AND 10.0),
+    severity          TEXT NOT NULL CHECK (severity IN ('Low', 'Medium', 'High', 'Critical')),
+    asset_id          INTEGER NOT NULL REFERENCES assets(asset_id) ON DELETE RESTRICT,
+    discovery_source  TEXT NOT NULL,
+    status            TEXT NOT NULL DEFAULT 'Open' CHECK (status IN ('Open', 'Under Investigation', 'In Progress', 'Resolved', 'Closed')),
+    created_at        TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+    resolved_at       TEXT,
+    UNIQUE (cve_id, asset_id)
+);
+
+CREATE INDEX idx_vulnerabilities_asset ON vulnerabilities(asset_id);

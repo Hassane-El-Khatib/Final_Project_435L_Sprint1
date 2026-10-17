@@ -3,6 +3,17 @@ INSERT INTO notifications (notification_id, user_id, title, message, notificatio
     (2, 2, 'Suspicious outbound traffic', 'Unusual outbound traffic volume detected from the finance subnet.', 'Security Alert', 'High', 'Unread', NULL),
     (3, 3, 'New command-and-control indicator', 'A new critical C2 server IP was added to threat intelligence.', 'Threat Alert', 'Critical', 'Read', datetime('now', 'localtime'));
 
+
+INSERT INTO threats (threat_id, threat_type, threat_value, description, severity_level, source) VALUES 
+(1, 'IP Address', '192.168.1.50', 'Suspicious outbound traffic', 'High', 'Firewall Log'),
+(2, 'Domain', 'malicious-test.com', 'Known phishing domain', 'Critical', 'ThreatIntel API'),
+(3, 'File Hash', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Ransomware payload', 'Critical', 'Endpoint Protection'),
+(4, 'Malware Signature', 'Trojan.Win32.Generic', 'Heuristic match', 'Medium', 'Antivirus'),
+(5, 'Other', 'Suspicious User Agent', 'Automated scanning script', 'Low', 'WAF'),
+(6, 'IP Address', '10.0.0.99', 'Internal brute force', 'Medium', 'Active Directory'),
+(7, 'Domain', 'c2-server.net', 'Command and control server', 'High', 'Network Monitor'),
+(8, 'File Hash', 'd41d8cd98f00b204e9800998ecf8427e', 'Empty file bypass', 'Low', 'Manual Analysis');
+
 INSERT INTO assets (asset_id, asset_name, asset_type, ip_address, operating_system, owner_id, department, location, criticality, status) VALUES
     (1, 'WEB-SRV-01', 'Server', '10.0.1.10', 'Ubuntu 22.04', 1, 'IT', 'Beirut DC Rack 3', 'Critical', 'Active'),
     (2, 'HR-WS-07', 'Workstation', '10.0.2.37', 'Windows 11', 4, 'Human Resources', 'Floor 2', 'Low', 'Active'),
@@ -28,3 +39,4 @@ INSERT INTO vulnerabilities (vulnerability_id, title, description, cve_id, cvss_
     (3, 'OpenSSL NULL pointer dereference', 'A crafted renegotiation message can crash the TLS server.', 'CVE-2021-3449', 5.9, 'Medium', 1, 'Nessus scan', 'Resolved', datetime('now', 'localtime', '-3 days')),
     (4, 'Log4Shell remote code execution', 'Apache Log4j2 JNDI lookup allows remote code execution.', 'CVE-2021-44228', 10.0, 'Critical', 3, 'Penetration test', 'Under Investigation', NULL),
     (5, 'Terrapin SSH prefix truncation', 'SSH handshake sequence numbers can be manipulated to downgrade connection security.', 'CVE-2023-48795', 5.9, 'Medium', 8, 'Penetration test', 'Closed', datetime('now', 'localtime', '-5 days'));
+

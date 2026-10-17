@@ -1,4 +1,4 @@
-# SIDRMS – Security Incident Detection and Response Management System
+# Security Incident Detection and Response Management System
 
 Backend for EECE 435L (Software Tools Lab), Sprint I. Nine independent Flask REST services share one SQLite database and talk to each other over HTTP.
 

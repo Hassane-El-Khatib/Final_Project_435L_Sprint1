@@ -53,51 +53,6 @@ CREATE TABLE notifications (
 CREATE INDEX idx_notifications_user ON notifications(user_id);
 
 
-CREATE TABLE IF NOT EXISTS threats (
-    threat_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    threat_type TEXT NOT NULL CHECK(threat_type IN ('IP Address', 'Domain', 'File Hash', 'Malware Signature', 'Other')),
-    threat_value TEXT NOT NULL,
-    description TEXT,
-    severity_level TEXT NOT NULL CHECK(severity_level IN ('Low', 'Medium', 'High', 'Critical')),
-    source TEXT,
-    date_added DATETIME DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(threat_type, threat_value)
-);
-
-CREATE TABLE IF NOT EXISTS playbooks (
-    playbook_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    playbook_name TEXT NOT NULL,
-    description TEXT,
-    incident_category TEXT NOT NULL,
-    severity_level TEXT NOT NULL CHECK(severity_level IN ('Low', 'Medium', 'High', 'Critical')),
-    created_by INTEGER,
-    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(created_by) REFERENCES users(user_id)
-);
-
-CREATE TABLE IF NOT EXISTS response_actions (
-    action_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    playbook_id INTEGER NOT NULL,
-    action_description TEXT NOT NULL,
-    step_number INTEGER NOT NULL,
-    status TEXT DEFAULT 'Pending' CHECK(status IN ('Pending', 'In Progress', 'Completed')),
-    assigned_user_id INTEGER,
-    completion_date DATETIME,
-    FOREIGN KEY(playbook_id) REFERENCES playbooks(playbook_id) ON DELETE CASCADE,
-    FOREIGN KEY(assigned_user_id) REFERENCES users(user_id),
-    UNIQUE(playbook_id, step_number)
-);
-
-CREATE TABLE IF NOT EXISTS action_history (
-    history_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    action_id INTEGER NOT NULL,
-    previous_status TEXT,
-    new_status TEXT NOT NULL,
-    changed_by INTEGER,
-    change_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(action_id) REFERENCES response_actions(action_id) ON DELETE CASCADE
-);
-
 CREATE TABLE assets (
     asset_id          INTEGER PRIMARY KEY AUTOINCREMENT,
     asset_name        TEXT NOT NULL,
@@ -160,3 +115,50 @@ CREATE TABLE vulnerabilities (
 
 CREATE INDEX idx_vulnerabilities_asset ON vulnerabilities(asset_id);
 
+CREATE TABLE threats (
+    threat_id     INTEGER PRIMARY KEY AUTOINCREMENT,
+    threat_type   TEXT NOT NULL CHECK (threat_type IN ('IP Address', 'Domain', 'File Hash', 'Malware Signature', 'Other')),
+    threat_value  TEXT NOT NULL,
+    description   TEXT NOT NULL,
+    severity      TEXT NOT NULL CHECK (severity IN ('Low', 'Medium', 'High', 'Critical')),
+    source        TEXT NOT NULL,
+    added_by      INTEGER REFERENCES users(user_id) ON DELETE SET NULL,
+    date_added    TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+    UNIQUE (threat_type, threat_value)
+);
+
+CREATE TABLE playbooks (
+    playbook_id        INTEGER PRIMARY KEY AUTOINCREMENT,
+    name               TEXT NOT NULL UNIQUE,
+    description        TEXT NOT NULL,
+    incident_category  TEXT NOT NULL CHECK (incident_category IN ('Malware', 'Unauthorized Access', 'Phishing', 'Data Leakage', 'Account Compromise', 'Denial of Service', 'Other')),
+    severity           TEXT NOT NULL CHECK (severity IN ('Low', 'Medium', 'High', 'Critical')),
+    created_by         INTEGER NOT NULL REFERENCES users(user_id) ON DELETE RESTRICT,
+    created_at         TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+);
+
+CREATE TABLE response_actions (
+    action_id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    playbook_id       INTEGER NOT NULL REFERENCES playbooks(playbook_id) ON DELETE CASCADE,
+    description       TEXT NOT NULL,
+    step_number       INTEGER NOT NULL CHECK (step_number > 0),
+    status            TEXT NOT NULL DEFAULT 'Pending' CHECK (status IN ('Pending', 'In Progress', 'Completed')),
+    assigned_user_id  INTEGER REFERENCES users(user_id) ON DELETE SET NULL,
+    completed_at      TEXT,
+    UNIQUE (playbook_id, step_number)
+);
+
+CREATE INDEX idx_actions_playbook ON response_actions(playbook_id);
+
+CREATE TABLE action_history (
+    history_id    INTEGER PRIMARY KEY AUTOINCREMENT,
+    action_id     INTEGER NOT NULL REFERENCES response_actions(action_id) ON DELETE CASCADE,
+    old_status    TEXT,
+    new_status    TEXT NOT NULL,
+    old_assignee  INTEGER,
+    new_assignee  INTEGER,
+    changed_by    INTEGER REFERENCES users(user_id) ON DELETE SET NULL,
+    changed_at    TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+);
+
+CREATE INDEX idx_history_action ON action_history(action_id);

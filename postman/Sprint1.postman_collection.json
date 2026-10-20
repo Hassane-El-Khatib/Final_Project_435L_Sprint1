@@ -1472,7 +1472,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1523,7 +1524,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1574,7 +1576,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1625,7 +1628,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1676,7 +1680,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1727,7 +1732,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1778,7 +1784,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1829,7 +1836,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1880,7 +1888,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Asset** (POST /assets)\n\nRoles: Security Administrator.\n\nBody: `asset_name`, `asset_type`, `ip_address`, `department`, `owner_id`, `criticality` (+ optional `operating_system`, `location`, `status`).\n\nErrors: 400 validation or unknown owner, 401, 403."
           }
         },
         {
@@ -1932,7 +1941,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Asset Information** (PUT /assets/{id})\n\nRoles: Security Administrator. Updatable: `asset_name`, `owner_id`, `department`, `criticality`, `status`, `operating_system`, `location`.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -1984,7 +1994,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Asset Information** (PUT /assets/{id})\n\nRoles: Security Administrator. Updatable: `asset_name`, `owner_id`, `department`, `criticality`, `status`, `operating_system`, `location`.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -2022,7 +2033,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Delete Asset** (DELETE /assets/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404, 409 asset still has vulnerabilities."
           }
         },
         {
@@ -2060,7 +2072,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Delete Asset** (DELETE /assets/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404, 409 asset still has vulnerabilities."
           }
         },
         {
@@ -2098,7 +2111,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Delete Asset** (DELETE /assets/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404, 409 asset still has vulnerabilities."
           }
         },
         {
@@ -2136,7 +2150,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Delete Asset** (DELETE /assets/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404, 409 asset still has vulnerabilities."
           }
         },
         {
@@ -2173,7 +2188,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve All Assets** (GET /assets)\n\nRoles: Security Administrator, Auditor. Optional query: `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2210,7 +2226,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve All Assets** (GET /assets)\n\nRoles: Security Administrator, Auditor. Optional query: `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2248,7 +2265,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Asset** (GET /assets/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Includes related incidents and vulnerabilities.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -2286,7 +2304,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Asset** (GET /assets/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Includes related incidents and vulnerabilities.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -2324,7 +2343,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Asset** (GET /assets/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Includes related incidents and vulnerabilities.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -2368,7 +2388,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2412,7 +2433,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2460,7 +2482,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2504,7 +2527,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2548,7 +2572,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2592,7 +2617,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2636,7 +2662,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Assets** (GET /assets/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `name` (partial), `type`, `ip`, `department`, `criticality`, `status`.\n\nErrors: 400, 401, 403."
           }
         }
       ]
@@ -2693,7 +2720,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2744,7 +2772,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2795,7 +2824,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2846,7 +2876,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2897,7 +2928,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2948,7 +2980,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -2999,7 +3032,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Create Incident** (POST /incidents)\n\nRoles: Security Administrator, Regular User. The reporter is taken from the token.\n\nBody: `title`, `description`, `category`, `severity`, `asset_id`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -3036,7 +3070,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve All Incidents** (GET /incidents)\n\nRoles: Security Administrator, Auditor. Optional query: `status`, `severity`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -3073,7 +3108,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve All Incidents** (GET /incidents)\n\nRoles: Security Administrator, Auditor. Optional query: `status`, `severity`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -3111,7 +3147,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Incident** (GET /incidents/{id})\n\nRoles: Administrator, Auditor, Analyst (assigned), Regular User (own). Includes investigation notes.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -3149,7 +3186,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Incident** (GET /incidents/{id})\n\nRoles: Administrator, Auditor, Analyst (assigned), Regular User (own). Includes investigation notes.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -3187,7 +3225,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Incident** (GET /incidents/{id})\n\nRoles: Administrator, Auditor, Analyst (assigned), Regular User (own). Includes investigation notes.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -3240,7 +3279,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Assign Incident to Analyst** (PUT /incidents/{id}/assign)\n\nRoles: Security Administrator.\n\nBody: `analyst_id` (an active Security Analyst).\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3293,7 +3333,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Assign Incident to Analyst** (PUT /incidents/{id}/assign)\n\nRoles: Security Administrator.\n\nBody: `analyst_id` (an active Security Analyst).\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3346,7 +3387,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Assign Incident to Analyst** (PUT /incidents/{id}/assign)\n\nRoles: Security Administrator.\n\nBody: `analyst_id` (an active Security Analyst).\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3399,7 +3441,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Incident Status** (PUT /incidents/{id}/status)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `status`, one step at a time: Open -> Under Investigation -> Mitigated -> Resolved -> Closed.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3452,7 +3495,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Incident Status** (PUT /incidents/{id}/status)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `status`, one step at a time: Open -> Under Investigation -> Mitigated -> Resolved -> Closed.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3505,7 +3549,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add Investigation Notes** (POST /incidents/{id}/notes)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `content`. Closed incidents accept no notes.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3558,7 +3603,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add Investigation Notes** (POST /incidents/{id}/notes)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `content`. Closed incidents accept no notes.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3596,7 +3642,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Incident** (GET /incidents/{id})\n\nRoles: Administrator, Auditor, Analyst (assigned), Regular User (own). Includes investigation notes.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -3649,7 +3696,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Incident Status** (PUT /incidents/{id}/status)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `status`, one step at a time: Open -> Under Investigation -> Mitigated -> Resolved -> Closed.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3702,7 +3750,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Incident Status** (PUT /incidents/{id}/status)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `status`, one step at a time: Open -> Under Investigation -> Mitigated -> Resolved -> Closed.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3755,7 +3804,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Incident Status** (PUT /incidents/{id}/status)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `status`, one step at a time: Open -> Under Investigation -> Mitigated -> Resolved -> Closed.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3808,7 +3858,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Incident Status** (PUT /incidents/{id}/status)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `status`, one step at a time: Open -> Under Investigation -> Mitigated -> Resolved -> Closed.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -3861,7 +3912,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add Investigation Notes** (POST /incidents/{id}/notes)\n\nRoles: Security Administrator, Security Analyst (assigned).\n\nBody: `content`. Closed incidents accept no notes.\n\nErrors: 400, 401, 403, 404."
           }
         }
       ]
@@ -3869,7 +3921,1228 @@
     {
       "name": "04 Threats",
       "description": "Threat Intelligence Service (port 5004).\n\nDeveloped by: Abdul Rahman Habbal\n\nRequests in this folder are named 'Abdul Rahman Habbal - <API> - <scenario>'.",
-      "item": []
+      "item": [
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - IP address 192.0.2.45 [C-01]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"IP Address\",\n    \"threat_value\": \"192.0.2.45\",\n    \"description\": \"Port scanning against the DMZ firewall.\",\n    \"severity\": \"High\",\n    \"source\": \"Firewall logs\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - domain bad-cdn-example.com [C-02]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"Domain\",\n    \"threat_value\": \"bad-cdn-example.com\",\n    \"description\": \"Fake CDN domain hosting a credential-stealing script.\",\n    \"severity\": \"Critical\",\n    \"source\": \"PhishTank\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - SHA-1 file hash [C-03]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"File Hash\",\n    \"threat_value\": \"3395856ce81f2b7382dee72602f798b642f14140\",\n    \"description\": \"SHA-1 of a test payload seen in an email attachment.\",\n    \"severity\": \"Medium\",\n    \"source\": \"VirusTotal\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - malware signature [C-04]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"Malware Signature\",\n    \"threat_value\": \"Backdoor.Generic.Test\",\n    \"description\": \"Backdoor detected by the endpoint antivirus in test mode.\",\n    \"severity\": \"Low\",\n    \"source\": \"Antivirus console\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - invalid IP address [C-05]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"IP Address\",\n    \"threat_value\": \"999.1.1.1\",\n    \"description\": \"Invalid address used to test validation.\",\n    \"severity\": \"High\",\n    \"source\": \"Firewall logs\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - invalid domain [C-06]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"Domain\",\n    \"threat_value\": \"http://bad\",\n    \"description\": \"URL instead of a domain name.\",\n    \"severity\": \"Medium\",\n    \"source\": \"Manual review\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - invalid file hash [C-07]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"File Hash\",\n    \"threat_value\": \"xyz123\",\n    \"description\": \"Not a hexadecimal hash value.\",\n    \"severity\": \"Low\",\n    \"source\": \"Manual review\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - invalid threat type [C-08]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"URL\",\n    \"threat_value\": \"http://bad.example.com/login\",\n    \"description\": \"URL is not a supported threat type.\",\n    \"severity\": \"Low\",\n    \"source\": \"Manual review\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - duplicate indicator [C-09]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"IP Address\",\n    \"threat_value\": \"192.0.2.45\",\n    \"description\": \"Same IP address reported again.\",\n    \"severity\": \"High\",\n    \"source\": \"IDS alerts\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Threat Indicator - analyst not allowed [C-10]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Add Threat Indicator** (POST /threats)\n\nRoles: Security Administrator.\n\nBody: `threat_type` (IP Address, Domain, File Hash, Malware Signature, Other), `threat_value` (validated by type), `description`, `severity`, `source`.\n\nSuccess: 201 with the threat. High and Critical indicators notify administrators and analysts.\n\nErrors: 400 validation, 401, 403, 409 duplicate type and value.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_type\": \"IP Address\",\n    \"threat_value\": \"192.0.2.99\",\n    \"description\": \"Analysts cannot add indicators.\",\n    \"severity\": \"Low\",\n    \"source\": \"IDS alerts\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve All Threat Indicators - analyst [C-11]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Retrieve All Threat Indicators** (GET /threats)\n\nRoles: Security Administrator, Security Analyst, Auditor. Newest first.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve All Threat Indicators - regular user not allowed [C-12]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats"
+              ]
+            },
+            "description": "**Retrieve All Threat Indicators** (GET /threats)\n\nRoles: Security Administrator, Security Analyst, Auditor. Newest first.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve Specific Threat Indicator - threat 2 [C-13]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/2",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "2"
+              ]
+            },
+            "description": "**Retrieve Specific Threat Indicator** (GET /threats/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve Specific Threat Indicator - threat does not exist [C-14]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/999",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "999"
+              ]
+            },
+            "description": "**Retrieve Specific Threat Indicator** (GET /threats/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Search Threat Indicators - type Domain [C-15]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/search?threat_type=Domain",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "threat_type",
+                  "value": "Domain"
+                }
+              ]
+            },
+            "description": "**Search Threat Indicators** (GET /threats/search)\n\nRoles: Security Administrator, Security Analyst.\n\nQuery (AND, at least one): `threat_type`, `threat_value` (partial), `severity`, `source` (partial).\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Search Threat Indicators - severity High [C-16]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/search?severity=High",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "High"
+                }
+              ]
+            },
+            "description": "**Search Threat Indicators** (GET /threats/search)\n\nRoles: Security Administrator, Security Analyst.\n\nQuery (AND, at least one): `threat_type`, `threat_value` (partial), `severity`, `source` (partial).\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Search Threat Indicators - partial value 198.51.100 [C-17]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/search?threat_value=198.51.100",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "threat_value",
+                  "value": "198.51.100"
+                }
+              ]
+            },
+            "description": "**Search Threat Indicators** (GET /threats/search)\n\nRoles: Security Administrator, Security Analyst.\n\nQuery (AND, at least one): `threat_type`, `threat_value` (partial), `severity`, `source` (partial).\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Search Threat Indicators - source virustotal (case-insensitive) [C-18]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/search?source=virustotal",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "source",
+                  "value": "virustotal"
+                }
+              ]
+            },
+            "description": "**Search Threat Indicators** (GET /threats/search)\n\nRoles: Security Administrator, Security Analyst.\n\nQuery (AND, at least one): `threat_type`, `threat_value` (partial), `severity`, `source` (partial).\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Search Threat Indicators - auditor not allowed to search [C-19]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/search?severity=Critical",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "Critical"
+                }
+              ]
+            },
+            "description": "**Search Threat Indicators** (GET /threats/search)\n\nRoles: Security Administrator, Security Analyst.\n\nQuery (AND, at least one): `threat_type`, `threat_value` (partial), `severity`, `source` (partial).\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Search Threat Indicators - invalid severity [C-20]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/search?severity=Severe",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "severity",
+                  "value": "Severe"
+                }
+              ]
+            },
+            "description": "**Search Threat Indicators** (GET /threats/search)\n\nRoles: Security Administrator, Security Analyst.\n\nQuery (AND, at least one): `threat_type`, `threat_value` (partial), `severity`, `source` (partial).\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Threat Information - threat 9 severity and description [C-21]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats/9",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "9"
+              ]
+            },
+            "description": "**Update Threat Information** (PUT /threats/{id})\n\nRoles: Security Administrator. Updatable: `description`, `severity`, `source`.\n\nErrors: 400 invalid value or type/value change, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"severity\": \"Critical\",\n    \"description\": \"Port scanning followed by exploitation attempts against the DMZ.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Threat Information - threat_value not updatable [C-22]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats/9",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "9"
+              ]
+            },
+            "description": "**Update Threat Information** (PUT /threats/{id})\n\nRoles: Security Administrator. Updatable: `description`, `severity`, `source`.\n\nErrors: 400 invalid value or type/value change, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"threat_value\": \"192.0.2.46\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Threat Information - invalid severity [C-23]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{threats_url}}/threats/9",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "9"
+              ]
+            },
+            "description": "**Update Threat Information** (PUT /threats/{id})\n\nRoles: Security Administrator. Updatable: `description`, `severity`, `source`.\n\nErrors: 400 invalid value or type/value change, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"severity\": \"Extreme\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Delete Threat Indicator - admin deletes threat 12 [C-24]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/12",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "12"
+              ]
+            },
+            "description": "**Delete Threat Indicator** (DELETE /threats/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Delete Threat Indicator - analyst not allowed [C-25]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/11",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "11"
+              ]
+            },
+            "description": "**Delete Threat Indicator** (DELETE /threats/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Delete Threat Indicator - threat does not exist [C-26]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{threats_url}}/threats/999",
+              "host": [
+                "{{threats_url}}"
+              ],
+              "path": [
+                "threats",
+                "999"
+              ]
+            },
+            "description": "**Delete Threat Indicator** (DELETE /threats/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
     },
     {
       "name": "05 Logs",
@@ -4591,7 +5864,320 @@
     {
       "name": "06 Reports",
       "description": "Security Reports Service (port 5006).\n\nDeveloped by: Abdul Rahman Habbal\n\nRequests in this folder are named 'Abdul Rahman Habbal - <API> - <scenario>'.",
-      "item": []
+      "item": [
+        {
+          "name": "Abdul Rahman Habbal - Generate Activity Report - auditor [C-52]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/activity",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "activity"
+              ]
+            },
+            "description": "**Generate Activity Report** (GET /reports/activity)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Security Summary Report - administrator [C-54]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/summary",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "summary"
+              ]
+            },
+            "description": "**Generate Security Summary Report** (GET /reports/summary)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Incident Report - auditor [C-56]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/incidents",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "incidents"
+              ]
+            },
+            "description": "**Generate Incident Report** (GET /reports/incidents)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Asset Report - administrator [C-58]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/assets",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "assets"
+              ]
+            },
+            "description": "**Generate Asset Report** (GET /reports/assets)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Threat Report - auditor [C-60]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/threats",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "threats"
+              ]
+            },
+            "description": "**Generate Threat Report** (GET /reports/threats)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Vulnerability Report - administrator [C-62]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/vulnerabilities",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "vulnerabilities"
+              ]
+            },
+            "description": "**Generate Vulnerability Report** (GET /reports/vulnerabilities)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Security Summary Report - analyst not allowed [C-64]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/summary",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "summary"
+              ]
+            },
+            "description": "**Generate Security Summary Report** (GET /reports/summary)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Generate Incident Report - regular user not allowed [C-65]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reports_url}}/reports/incidents",
+              "host": [
+                "{{reports_url}}"
+              ],
+              "path": [
+                "reports",
+                "incidents"
+              ]
+            },
+            "description": "**Generate Incident Report** (GET /reports/incidents)\n\nRoles: Security Administrator, Auditor. Read-only aggregate queries on the shared database.\n\nErrors: 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{employee_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
     },
     {
       "name": "07 Vulnerabilities",
@@ -4645,7 +6231,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4696,7 +6283,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4747,7 +6335,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4798,7 +6387,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4849,7 +6439,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4900,7 +6491,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4951,7 +6543,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Add New Vulnerability** (POST /vulnerabilities)\n\nRoles: Security Administrator.\n\nBody: `title`, `description`, `cve_id`, `cvss_score`, `severity` (must match the CVSS band), `asset_id`, `discovery_source`.\n\nErrors: 400, 401, 403, 409 duplicate CVE on the asset."
           }
         },
         {
@@ -4988,7 +6581,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve All Vulnerabilities** (GET /vulnerabilities)\n\nRoles: Security Administrator, Security Analyst, Auditor. Optional query: `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -5026,7 +6620,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Vulnerability** (GET /vulnerabilities/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -5064,7 +6659,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Retrieve Specific Vulnerability** (GET /vulnerabilities/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -5116,7 +6712,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Vulnerability Information** (PUT /vulnerabilities/{id})\n\nRoles: Security Administrator, Security Analyst. Updatable: `description`, `severity`, `status`, `cvss_score`, `resolved_at`.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -5168,7 +6765,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Vulnerability Information** (PUT /vulnerabilities/{id})\n\nRoles: Security Administrator, Security Analyst. Updatable: `description`, `severity`, `status`, `cvss_score`, `resolved_at`.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -5220,7 +6818,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Vulnerability Information** (PUT /vulnerabilities/{id})\n\nRoles: Security Administrator, Security Analyst. Updatable: `description`, `severity`, `status`, `cvss_score`, `resolved_at`.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -5272,7 +6871,8 @@
                   "language": "json"
                 }
               }
-            }
+            },
+            "description": "**Update Vulnerability Information** (PUT /vulnerabilities/{id})\n\nRoles: Security Administrator, Security Analyst. Updatable: `description`, `severity`, `status`, `cvss_score`, `resolved_at`.\n\nErrors: 400, 401, 403, 404."
           }
         },
         {
@@ -5316,7 +6916,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Vulnerabilities** (GET /vulnerabilities/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `cve_id` (partial), `severity`, `asset_id`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -5360,7 +6961,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Vulnerabilities** (GET /vulnerabilities/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `cve_id` (partial), `severity`, `asset_id`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -5408,7 +7010,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Vulnerabilities** (GET /vulnerabilities/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `cve_id` (partial), `severity`, `asset_id`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -5452,7 +7055,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Search Vulnerabilities** (GET /vulnerabilities/search)\n\nRoles: Security Administrator, Security Analyst, Auditor.\n\nQuery (AND, at least one): `cve_id` (partial), `severity`, `asset_id`, `status`.\n\nErrors: 400, 401, 403."
           }
         },
         {
@@ -5490,7 +7094,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Delete Vulnerability** (DELETE /vulnerabilities/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404."
           }
         },
         {
@@ -5528,7 +7133,8 @@
                   "type": "string"
                 }
               ]
-            }
+            },
+            "description": "**Delete Vulnerability** (DELETE /vulnerabilities/{id})\n\nRoles: Security Administrator.\n\nErrors: 401, 403, 404."
           }
         }
       ]
@@ -6235,7 +7841,1227 @@
     {
       "name": "09 Playbooks",
       "description": "Security Playbook and Response Service (port 5009).\n\nDeveloped by: Abdul Rahman Habbal\n\nRequests in this folder are named 'Abdul Rahman Habbal - <API> - <scenario>'.",
-      "item": []
+      "item": [
+        {
+          "name": "Abdul Rahman Habbal - Create Response Playbook - Account Compromise Response [C-27]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks"
+              ]
+            },
+            "description": "**Create Response Playbook** (POST /playbooks)\n\nRoles: Security Administrator.\n\nBody: `name` (unique), `description`, `incident_category`, `severity`.\n\nErrors: 400, 401, 403, 409 duplicate name.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Account Compromise Response\",\n    \"description\": \"Steps when a user account is suspected to be compromised.\",\n    \"incident_category\": \"Account Compromise\",\n    \"severity\": \"High\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Create Response Playbook - Data Leakage Response [C-28]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks"
+              ]
+            },
+            "description": "**Create Response Playbook** (POST /playbooks)\n\nRoles: Security Administrator.\n\nBody: `name` (unique), `description`, `incident_category`, `severity`.\n\nErrors: 400, 401, 403, 409 duplicate name.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Data Leakage Response\",\n    \"description\": \"Steps when confidential data may have left the organisation.\",\n    \"incident_category\": \"Data Leakage\",\n    \"severity\": \"Critical\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Create Response Playbook - duplicate name [C-29]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks"
+              ]
+            },
+            "description": "**Create Response Playbook** (POST /playbooks)\n\nRoles: Security Administrator.\n\nBody: `name` (unique), `description`, `incident_category`, `severity`.\n\nErrors: 400, 401, 403, 409 duplicate name.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Ransomware Response\",\n    \"description\": \"Second playbook with an existing name.\",\n    \"incident_category\": \"Malware\",\n    \"severity\": \"Critical\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Create Response Playbook - invalid incident category [C-30]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks"
+              ]
+            },
+            "description": "**Create Response Playbook** (POST /playbooks)\n\nRoles: Security Administrator.\n\nBody: `name` (unique), `description`, `incident_category`, `severity`.\n\nErrors: 400, 401, 403, 409 duplicate name.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Virus Response\",\n    \"description\": \"Virus is not one of the incident categories.\",\n    \"incident_category\": \"Virus\",\n    \"severity\": \"High\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Create Response Playbook - analyst not allowed [C-31]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks"
+              ]
+            },
+            "description": "**Create Response Playbook** (POST /playbooks)\n\nRoles: Security Administrator.\n\nBody: `name` (unique), `description`, `incident_category`, `severity`.\n\nErrors: 400, 401, 403, 409 duplicate name.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Analyst Playbook\",\n    \"description\": \"Analysts cannot create playbooks.\",\n    \"incident_category\": \"Other\",\n    \"severity\": \"Low\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve All Playbooks - auditor [C-32]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks"
+              ]
+            },
+            "description": "**Retrieve All Playbooks** (GET /playbooks)\n\nRoles: Security Administrator, Security Analyst, Auditor. Optional query: `incident_category`, `severity`.\n\nErrors: 400, 401, 403.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve Specific Playbook - playbook 1 with ordered actions [C-33]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/1",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "1"
+              ]
+            },
+            "description": "**Retrieve Specific Playbook** (GET /playbooks/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Returns the actions in step order with their history.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve Specific Playbook - playbook does not exist [C-34]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/999",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "999"
+              ]
+            },
+            "description": "**Retrieve Specific Playbook** (GET /playbooks/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Returns the actions in step order with their history.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Response Action - step 1 assigned to analyst1 [C-35]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3/actions",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3",
+                "actions"
+              ]
+            },
+            "description": "**Add Response Action** (POST /playbooks/{id}/actions)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `description`, `step_number` (positive, unique in the playbook), optional `assigned_user_id`.\n\nErrors: 400, 401, 403, 404, 409 duplicate step.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Force password reset and revoke sessions\",\n    \"step_number\": 1,\n    \"assigned_user_id\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Response Action - step 3 [C-36]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3/actions",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3",
+                "actions"
+              ]
+            },
+            "description": "**Add Response Action** (POST /playbooks/{id}/actions)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `description`, `step_number` (positive, unique in the playbook), optional `assigned_user_id`.\n\nErrors: 400, 401, 403, 404, 409 duplicate step.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Review sign-in logs for other affected accounts\",\n    \"step_number\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Response Action - step 2 added last [C-37]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3/actions",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3",
+                "actions"
+              ]
+            },
+            "description": "**Add Response Action** (POST /playbooks/{id}/actions)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `description`, `step_number` (positive, unique in the playbook), optional `assigned_user_id`.\n\nErrors: 400, 401, 403, 404, 409 duplicate step.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Enable MFA on the account\",\n    \"step_number\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Response Action - duplicate step number [C-38]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3/actions",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3",
+                "actions"
+              ]
+            },
+            "description": "**Add Response Action** (POST /playbooks/{id}/actions)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `description`, `step_number` (positive, unique in the playbook), optional `assigned_user_id`.\n\nErrors: 400, 401, 403, 404, 409 duplicate step.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Another step two\",\n    \"step_number\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Response Action - step number 0 [C-39]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3/actions",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3",
+                "actions"
+              ]
+            },
+            "description": "**Add Response Action** (POST /playbooks/{id}/actions)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `description`, `step_number` (positive, unique in the playbook), optional `assigned_user_id`.\n\nErrors: 400, 401, 403, 404, 409 duplicate step.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Invalid step number\",\n    \"step_number\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Add Response Action - auditor not allowed [C-40]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3/actions",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3",
+                "actions"
+              ]
+            },
+            "description": "**Add Response Action** (POST /playbooks/{id}/actions)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `description`, `step_number` (positive, unique in the playbook), optional `assigned_user_id`.\n\nErrors: 400, 401, 403, 404, 409 duplicate step.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auditor_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"Auditors cannot add steps\",\n    \"step_number\": 4\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve Specific Playbook - playbook 3 steps in order [C-41]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3"
+              ]
+            },
+            "description": "**Retrieve Specific Playbook** (GET /playbooks/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Returns the actions in step order with their history.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Response Action Status - step 2 before step 1 is done [C-42]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/actions/12/status",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "actions",
+                "12",
+                "status"
+              ]
+            },
+            "description": "**Update Response Action Status** (PUT /actions/{id}/status)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `status` (Pending -> In Progress -> Completed), `assigned_user_id`, `completed_at`. Earlier steps must be Completed before a step starts.\n\nErrors: 400, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"In Progress\",\n    \"assigned_user_id\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Response Action Status - Pending to Completed rejected [C-43]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/actions/10/status",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "actions",
+                "10",
+                "status"
+              ]
+            },
+            "description": "**Update Response Action Status** (PUT /actions/{id}/status)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `status` (Pending -> In Progress -> Completed), `assigned_user_id`, `completed_at`. Earlier steps must be Completed before a step starts.\n\nErrors: 400, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"Completed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Response Action Status - step 1 to In Progress [C-44]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/actions/10/status",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "actions",
+                "10",
+                "status"
+              ]
+            },
+            "description": "**Update Response Action Status** (PUT /actions/{id}/status)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `status` (Pending -> In Progress -> Completed), `assigned_user_id`, `completed_at`. Earlier steps must be Completed before a step starts.\n\nErrors: 400, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"In Progress\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Response Action Status - step 1 to Completed [C-45]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/actions/10/status",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "actions",
+                "10",
+                "status"
+              ]
+            },
+            "description": "**Update Response Action Status** (PUT /actions/{id}/status)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `status` (Pending -> In Progress -> Completed), `assigned_user_id`, `completed_at`. Earlier steps must be Completed before a step starts.\n\nErrors: 400, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"Completed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Response Action Status - step 2 to In Progress assigned to analyst2 [C-46]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/actions/12/status",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "actions",
+                "12",
+                "status"
+              ]
+            },
+            "description": "**Update Response Action Status** (PUT /actions/{id}/status)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `status` (Pending -> In Progress -> Completed), `assigned_user_id`, `completed_at`. Earlier steps must be Completed before a step starts.\n\nErrors: 400, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"In Progress\",\n    \"assigned_user_id\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Update Response Action Status - completed step cannot change [C-47]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{playbooks_url}}/actions/10/status",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "actions",
+                "10",
+                "status"
+              ]
+            },
+            "description": "**Update Response Action Status** (PUT /actions/{id}/status)\n\nRoles: Security Administrator, Security Analyst.\n\nBody: `status` (Pending -> In Progress -> Completed), `assigned_user_id`, `completed_at`. Earlier steps must be Completed before a step starts.\n\nErrors: 400, 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"In Progress\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Retrieve Specific Playbook - playbook 3 with history [C-48]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/3",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "3"
+              ]
+            },
+            "description": "**Retrieve Specific Playbook** (GET /playbooks/{id})\n\nRoles: Security Administrator, Security Analyst, Auditor. Returns the actions in step order with their history.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Delete Playbook - analyst not allowed [C-49]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/2",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "2"
+              ]
+            },
+            "description": "**Delete Playbook** (DELETE /playbooks/{id})\n\nRoles: Security Administrator. Actions and their history are deleted with the playbook.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{analyst_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Delete Playbook - admin deletes playbook 2 [C-50]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/2",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "2"
+              ]
+            },
+            "description": "**Delete Playbook** (DELETE /playbooks/{id})\n\nRoles: Security Administrator. Actions and their history are deleted with the playbook.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abdul Rahman Habbal - Delete Playbook - playbook does not exist [C-51]",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{playbooks_url}}/playbooks/999",
+              "host": [
+                "{{playbooks_url}}"
+              ],
+              "path": [
+                "playbooks",
+                "999"
+              ]
+            },
+            "description": "**Delete Playbook** (DELETE /playbooks/{id})\n\nRoles: Security Administrator. Actions and their history are deleted with the playbook.\n\nErrors: 401, 403, 404.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   ]
 }

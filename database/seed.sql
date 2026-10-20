@@ -4,16 +4,6 @@ INSERT INTO notifications (notification_id, user_id, title, message, notificatio
     (3, 3, 'New command-and-control indicator', 'A new critical C2 server IP was added to threat intelligence.', 'Threat Alert', 'Critical', 'Read', datetime('now', 'localtime'));
 
 
-INSERT INTO threats (threat_id, threat_type, threat_value, description, severity_level, source) VALUES 
-(1, 'IP Address', '192.168.1.50', 'Suspicious outbound traffic', 'High', 'Firewall Log'),
-(2, 'Domain', 'malicious-test.com', 'Known phishing domain', 'Critical', 'ThreatIntel API'),
-(3, 'File Hash', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Ransomware payload', 'Critical', 'Endpoint Protection'),
-(4, 'Malware Signature', 'Trojan.Win32.Generic', 'Heuristic match', 'Medium', 'Antivirus'),
-(5, 'Other', 'Suspicious User Agent', 'Automated scanning script', 'Low', 'WAF'),
-(6, 'IP Address', '10.0.0.99', 'Internal brute force', 'Medium', 'Active Directory'),
-(7, 'Domain', 'c2-server.net', 'Command and control server', 'High', 'Network Monitor'),
-(8, 'File Hash', 'd41d8cd98f00b204e9800998ecf8427e', 'Empty file bypass', 'Low', 'Manual Analysis');
-
 INSERT INTO assets (asset_id, asset_name, asset_type, ip_address, operating_system, owner_id, department, location, criticality, status) VALUES
     (1, 'WEB-SRV-01', 'Server', '10.0.1.10', 'Ubuntu 22.04', 1, 'IT', 'Beirut DC Rack 3', 'Critical', 'Active'),
     (2, 'HR-WS-07', 'Workstation', '10.0.2.37', 'Windows 11', 4, 'Human Resources', 'Floor 2', 'Low', 'Active'),
@@ -40,3 +30,34 @@ INSERT INTO vulnerabilities (vulnerability_id, title, description, cve_id, cvss_
     (4, 'Log4Shell remote code execution', 'Apache Log4j2 JNDI lookup allows remote code execution.', 'CVE-2021-44228', 10.0, 'Critical', 3, 'Penetration test', 'Under Investigation', NULL),
     (5, 'Terrapin SSH prefix truncation', 'SSH handshake sequence numbers can be manipulated to downgrade connection security.', 'CVE-2023-48795', 5.9, 'Medium', 8, 'Penetration test', 'Closed', datetime('now', 'localtime', '-5 days'));
 
+INSERT INTO threats (threat_id, threat_type, threat_value, description, severity, source, added_by) VALUES
+    (1, 'IP Address', '198.51.100.23', 'Repeated SSH brute-force attempts against the web server.', 'High', 'Internal SOC', 1),
+    (2, 'IP Address', '203.0.113.77', 'Known command-and-control server used by a banking trojan.', 'Critical', 'AlienVault OTX', 1),
+    (3, 'Domain', 'secure-login-example.net', 'Credential phishing page imitating the company login portal.', 'High', 'PhishTank', 1),
+    (4, 'Domain', 'update-check-example.org', 'Domain serving fake software updates that install malware.', 'Medium', 'URLhaus', 1),
+    (5, 'File Hash', '44d88612fea8a8f36de82e1278abb02f', 'MD5 of the EICAR antivirus test file.', 'Low', 'VirusTotal', 1),
+    (6, 'File Hash', '275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f', 'SHA-256 of the EICAR antivirus test file.', 'Medium', 'VirusTotal', 1),
+    (7, 'Malware Signature', 'Trojan.GenericKD.Downloader', 'Downloader trojan detected on endpoints by the antivirus vendor.', 'High', 'Vendor advisory', 1),
+    (8, 'Other', 'User-Agent: sqlmap/1.7', 'Automated SQL injection scanner seen in web server logs.', 'Low', 'WAF logs', 1);
+
+INSERT INTO playbooks (playbook_id, name, description, incident_category, severity, created_by) VALUES
+    (1, 'Ransomware Response', 'Steps to contain and recover from a ransomware infection.', 'Malware', 'Critical', 1),
+    (2, 'Phishing Response', 'Steps to handle a reported phishing email.', 'Phishing', 'Medium', 1);
+
+INSERT INTO response_actions (action_id, playbook_id, description, step_number, status, assigned_user_id, completed_at) VALUES
+    (1, 1, 'Isolate affected hosts from the network', 1, 'Completed', 2, datetime('now', 'localtime', '-1 day')),
+    (2, 1, 'Identify the ransomware strain', 2, 'In Progress', 2, NULL),
+    (3, 1, 'Restore systems from clean backups', 3, 'Pending', NULL, NULL),
+    (4, 1, 'Reset credentials of affected accounts', 4, 'Pending', NULL, NULL),
+    (5, 1, 'Run a post-incident review', 5, 'Pending', NULL, NULL),
+    (6, 2, 'Block the sender domain on the mail gateway', 1, 'Pending', NULL, NULL),
+    (7, 2, 'Remove the email from all mailboxes', 2, 'Pending', NULL, NULL),
+    (8, 2, 'Reset passwords of users who clicked the link', 3, 'Pending', NULL, NULL),
+    (9, 2, 'Send a phishing awareness reminder', 4, 'Pending', NULL, NULL);
+
+INSERT INTO action_history (action_id, old_status, new_status, old_assignee, new_assignee, changed_by) VALUES
+    (1, NULL, 'Pending', NULL, NULL, 1),
+    (1, 'Pending', 'In Progress', NULL, 2, 2),
+    (1, 'In Progress', 'Completed', 2, 2, 2),
+    (2, NULL, 'Pending', NULL, NULL, 1),
+    (2, 'Pending', 'In Progress', NULL, 2, 2);
